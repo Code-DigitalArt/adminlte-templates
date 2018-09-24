@@ -16,6 +16,8 @@
 
                         @include('$VIEW_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.fields')
 
+                        $RELATIONS$
+
                     {!! Form::close() !!}
                 </div>
             </div>
