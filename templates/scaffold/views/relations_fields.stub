@@ -29,13 +29,6 @@
                     '</div>' +
                     '<br><button class="delete btn btn-danger" type="button"><i class="fa fa-minus"></i></button>' +
                     '</div>'); //add input box
-
-                jQuery(".datepicker-field").datepicker({
-                    changeYear: true,
-                    dateFormat: "dd-mm-yy",
-                    yearRange: "-100:+0",
-                    maxDate : "0",
-                });
             }
             else
             {
