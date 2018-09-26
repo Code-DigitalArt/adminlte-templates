@@ -1,0 +1,4 @@
+<!-- $FIELD_NAME_TITLE$ Field -->
+'<div class="form-group col-sm-6">' +
+    '<div class="form-group">$FIELD_NAME_TITLE$:<input type="text" class="form-control" name="$FIELD_ARRAY_NAME$[' + x + '][$FIELD_NAME$]" title="" ></div>' +
+'</div>' +

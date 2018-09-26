@@ -24,3 +24,8 @@
         </div>
     </div>
 @endsection
+
+@section('javascript')
+@parent
+$JSRELATIONS$
+@endsection
