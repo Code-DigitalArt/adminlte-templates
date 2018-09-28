@@ -10,6 +10,6 @@
         <input
                 type="checkbox"
                 value="{{ $$CCRELATION$->id }}"
-                name="$$CCRELATION$s[ {{ $$CCRELATION$->name }} ]">
+                name="$CCRELATION$s[ {{ $$CCRELATION$->name }} ]">
 @endforeach
 </div>
