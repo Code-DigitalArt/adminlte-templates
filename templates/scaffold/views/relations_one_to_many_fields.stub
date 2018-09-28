@@ -1,0 +1,43 @@
+<hr class="col-xs-12">
+<h4 class="form-group col-sm-12">$RELATION$</h4>
+<hr class="col-xs-12">
+
+
+<div class="form-group col-sm-12">
+    <div class="$RELATIONJS$">
+        <button class="add-new-$RELATIONJS$ btn btn-success" type="button"><i class="fa fa-plus"></i>Add</button>
+    </div>
+</div>
+@section('javascript-$RELATIONJS$')
+<script>
+    jQuery(document).ready(function() {
+        var max_fields      = 5;
+        var wrapper         = jQuery(".$RELATIONJS$");
+        var add_button      = jQuery(".add-new-$RELATIONJS$");
+        var x = 0;
+
+        jQuery(add_button).click(function(e){
+            e.preventDefault();
+            if(x < max_fields){
+                x++;
+                jQuery(wrapper).append(
+                    '<div class="filedset $RELATIONJS$">' +
+                    '<div class="form-group col-md-12">' +
+
+                    $FIELDS$
+
+                    '</div>' +
+                    '<br><button class="delete btn btn-danger" type="button"><i class="fa fa-minus"></i></button>' +
+                    '</div>'); //add input box
+            }
+            else
+            {
+                alert('You Reached the limits')
+            }
+        });
+        jQuery(wrapper).on("click",".delete", function(e){
+            e.preventDefault(); jQuery(this).parent('div').remove(); x--;
+        })
+    });
+</script>
+@endsection
