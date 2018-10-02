@@ -4,12 +4,13 @@
 
 
 
-<div class="form-group col-sm-12">
+<div class="form-group col-sm-6">
 @foreach($$CCRELATION$s as $$CCRELATION$)
+
+<div class="form-group col-sm-2">
     {{ $$CCRELATION$->name  }}
-        <input
-                type="checkbox"
-                value="{{ $$CCRELATION$->id }}"
-                name="$CCRELATION$s[ {{ $$CCRELATION$->name }} ]">
+</div>
+    $CHECKBOXES$
+    $FIELDS$
 @endforeach
 </div>
