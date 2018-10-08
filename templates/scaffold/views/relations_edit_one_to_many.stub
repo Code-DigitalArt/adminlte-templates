@@ -47,7 +47,7 @@
                     '<div class="form-group col-md-12">' +
 
                     '{{ Form::open(["route" => ["$CCRELATION$s.store"], "method" => "POST" ]) }}' +
-
+                    '{{ Form::hidden('redirect', 'back') }}' +
                     '{{ Form::hidden('$THIS$_id', $$THIS$->id) }}' +
 
                     $FIELDS$
