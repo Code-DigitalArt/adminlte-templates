@@ -2,72 +2,85 @@
 <h4 class="form-group col-sm-12">$RELATION$</h4>
 <hr class="col-xs-12">
 
-<div class="form-group col-sm-12">
-    <div class="patient-insurance-plan">
-        @foreach($$MODEL_NAME_CAMEL$->$CCRELATION$s as $$CCRELATION$)
-                $RELATION_COLUMN$
 
-            <div class="form-group row col-sm-12">
-                <div class="form-group col-sm-6">
-                    {{ Form::open(['method' => 'GET', 'route' => ['$CCRELATION$s.edit', $$CCRELATION$->id]]) }}
-                        {{ Form::hidden('id', $$CCRELATION$->id) }}
-                        {{ Form::submit('Edit', ['class' => 'btn btn-info']) }}
-                    {{ Form::close() }}
-                </div>
-                <div class="form-group col-sm-6">
-                    {{ Form::open(['method' => 'DELETE', 'route' => ['$CCRELATION$s.destroy', $$CCRELATION$->id]]) }}
-                        {{ Form::hidden('id', $$CCRELATION$->id) }}
-                        {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
-                    {{ Form::close() }}
+
+<div class="form-group col-sm-12">
+    @foreach($$MODEL_NAME_CAMEL$->$CCRELATION$s as $$CCRELATION$)
+
+
+
+        $RELATION_COLUMN$
+
+        <div class="form-group row col-sm-12">
+            <!-- Button trigger modal -->
+            <div class="form-group col-sm-6">
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#editModal">
+                    Edit
+                </button>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="editModalLabel">Edit $RELATION_COLUMN$</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        {!! Form::model($$CCRELATION$, ['route' => ['$CCRELATION$s.update', $$CCRELATION$->id], 'method' => 'patch']) !!}
+
+                            <div class="modal-body">
+
+                            @include('$SCFILEDIR$s.fields')
+
+                            </div>
+
+                        {{ Form::hidden('$THIS$_id', $$THIS$->id) }}
+                        {{ Form::hidden('redirect', 'back') }}
+                        {!! Form::close() !!}
+                    </div>
                 </div>
             </div>
-        @endforeach
 
-    </div>
-    <div class="form-group col-sm-12">
-            <button class="add-new-$RELATIONJS$ btn btn-success" type="button"><i class="fa fa-plus"></i>Add</button>
-    </div>
+
+            <div class="form-group col-sm-6">
+                {{ Form::open(['method' => 'DELETE', 'route' => ['$CCRELATION$s.destroy', $$CCRELATION$->id]]) }}
+                    {{ Form::hidden('$THIS$_id', $$THIS$->id) }}
+                    {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
+                {{ Form::close() }}
+            </div>
+        </div>
+    @endforeach
+
+        <div class="form-group row col-sm-12">
+
+            <!-- Button trigger modal -->
+            <div class="form-group col-sm-6">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addModal">
+                    Add
+                </button>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="addModalLabel">Add $RELATION_COLUMN$</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+
+                        {{ Form::open(["route" => ["$CCRELATION$s.store"], "method" => "POST" ]) }}
+                        <div class="modal-body">
+                            @include('$SCFILEDIR$s.fields')
+                        </div>
+                        {{ Form::hidden('$THIS$_id', $$THIS$->id) }}
+                        {{ Form::hidden('redirect', 'back') }}
+                        {!! Form::close() !!}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
 </div>
-
-
-@section('javascript-$RELATIONJS$')
-<script>
-    jQuery(document).ready(function() {
-        var max_fields      = 5;
-        var wrapper         = jQuery(".$RELATIONJS$");
-        var add_button      = jQuery(".add-new-$RELATIONJS$");
-        var x = 0;
-
-        jQuery(add_button).click(function(e){
-            e.preventDefault();
-            if(x < max_fields){
-                x++;
-                jQuery(wrapper).append(
-                    '<div class="filedset $RELATIONJS$">' +
-                    '<div class="form-group col-md-12">' +
-
-                    '{{ Form::open(["route" => ["$CCRELATION$s.store"], "method" => "POST" ]) }}' +
-                    '{{ Form::hidden('redirect', 'back') }}' +
-                    '{{ Form::hidden('$THIS$_id', $$THIS$->id) }}' +
-
-                    $FIELDS$
-
-                    '{{ Form::submit('Save', ['class' => 'form-control btn btn-success']) }}' +
-
-                    '{{ Form::close() }}' +
-
-                    '</div>' +
-                    '<button class="form-control delete btn btn-danger" type="button"><i class="fa fa-minus"></i></button>' +
-                    '</div>');
-            }
-            else
-            {
-                alert('You Reached the limits')
-            }
-        });
-        jQuery(wrapper).on("click",".delete", function(e){
-            e.preventDefault(); jQuery(this).parent('div').remove(); x--;
-        })
-    });
-</script>
-@endsection
