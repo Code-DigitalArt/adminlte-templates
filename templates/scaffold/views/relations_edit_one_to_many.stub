@@ -52,7 +52,7 @@
 
                     $FIELDS$
 
-                    '{{ Form::submit('Save', ['class' => 'btn btn-success']) }}' +
+                    '{{ Form::submit('Save', ['class' => 'form-control btn btn-success']) }}' +
 
                     '{{ Form::close() }}' +
 
