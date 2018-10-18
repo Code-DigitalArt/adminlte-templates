@@ -15,9 +15,11 @@
 
                         @include('$VIEW_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.fields')
 
+                        $MTM_RELATIONS$
+
                    {!! Form::close() !!}
 
-                   $RELATIONS$
+                   $1TM_RELATIONS$
                </div>
            </div>
        </div>

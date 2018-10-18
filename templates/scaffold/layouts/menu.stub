@@ -1,0 +1,12 @@
+<li class="treeview">
+    <a href="#">
+        <i class="fa fa-cog"></i>
+        <span class="title">Settings</span>
+        <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+        </span>
+    </a>
+    <ul class="treeview-menu">
+
+    </ul>
+</li>

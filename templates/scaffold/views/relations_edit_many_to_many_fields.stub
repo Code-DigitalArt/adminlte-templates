@@ -5,7 +5,6 @@
 
 
 <div class="form-group col-sm-6">
-
 @foreach($$CCRELATION$s as $$CCRELATION$)
 
 <div class="form-group col-sm-2">
@@ -14,4 +13,5 @@
     $CHECKBOXES$
     $FIELDS$
 @endforeach
+
 </div>

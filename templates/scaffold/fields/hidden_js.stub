@@ -1,0 +1,1 @@
+'<input type="hidden" class="form-control" name="$FIELD_ARRAY_NAME$[' + x + '][$FIELD_NAME$]" title="" >' +

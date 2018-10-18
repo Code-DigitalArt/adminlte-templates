@@ -1,36 +1,36 @@
 <hr class="col-xs-12">
-<h4 class="form-group col-sm-12">$RELATION$</h4>
+<h4 class="form-group col-sm-12">$RELATION_TITLE$</h4>
 <hr class="col-xs-12">
 
 
 
 <div class="form-group col-sm-12">
-    @foreach($$MODEL_NAME_CAMEL$->$CCRELATION$s as $$CCRELATION$)
+    @foreach($$MODEL_NAME_CAMEL$->$PCCRELATION$ as $$CCRELATION$)
 
 
-        @include('$SCFILEDIR$s.show_fields')
+        @include('$SCFILEDIR$.show_fields')
 
         <div class="form-group row col-sm-12">
             <!-- Button trigger modal -->
             <div class="form-group col-sm-6">
-                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#editModal">
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#editModal$RELATION_NAME$">
                     Edit
                 </button>
             </div>
 
             <!-- Modal -->
-            <div class="modal" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel">
+            <div class="modal" id="editModal$RELATION_NAME$" tabindex="-1" role="dialog" aria-labelledby="editModalLabel$RELATION_NAME$">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h4 class="modal-title" id="editModalLabel">Edit</h4>
+                            <h4 class="modal-title" id="editModalLabel$RELATION_NAME$">Edit</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         </div>
-                        {!! Form::model($$CCRELATION$, ['route' => ['$CCRELATION$s.update', $$CCRELATION$->id], 'method' => 'patch']) !!}
+                        {!! Form::model($$CCRELATION$, ['route' => ['$PCCRELATION$.update', $$CCRELATION$->id], 'method' => 'patch']) !!}
 
                             <div class="modal-body">
 
-                            @include('$SCFILEDIR$s.fields')
+                            @include('$SCFILEDIR$.fields')
 
                             </div>
 
@@ -43,7 +43,7 @@
 
 
             <div class="form-group col-sm-6">
-                {{ Form::open(['method' => 'DELETE', 'route' => ['$CCRELATION$s.destroy', $$CCRELATION$->id]]) }}
+                {{ Form::open(['method' => 'DELETE', 'route' => ['$PCCRELATION$.destroy', $$CCRELATION$->id]]) }}
                     {{ Form::hidden('$THIS$_id', $$THIS$->id) }}
                     {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
                 {{ Form::close() }}
@@ -55,23 +55,23 @@
 
             <!-- Button trigger modal -->
             <div class="form-group col-sm-6">
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addModal">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addModal$RELATION_NAME$">
                     Add
                 </button>
             </div>
 
             <!-- Modal -->
-            <div class="modal" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel">
+            <div class="modal" id="addModal$RELATION_NAME$" tabindex="-1" role="dialog" aria-labelledby="addModalLabel$RELATION_NAME$">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h4 class="modal-title" id="addModalLabel">Add</h4>
+                            <h4 class="modal-title" id="addModalLabel$RELATION_NAME$">Add</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         </div>
 
-                        {{ Form::open(["route" => ["$CCRELATION$s.store"], "method" => "POST" ]) }}
+                        {{ Form::open(["route" => ["$PCCRELATION$.store"], "method" => "POST" ]) }}
                         <div class="modal-body">
-                            @include('$SCFILEDIR$s.fields')
+                            @include('$SCFILEDIR$.fields')
                         </div>
                         {{ Form::hidden('$THIS$_id', $$THIS$->id) }}
                         {{ Form::hidden('redirect', 'back') }}
