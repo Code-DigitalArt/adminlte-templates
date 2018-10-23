@@ -28,5 +28,4 @@
 
 @section('javascript')
 @parent
-$JSRELATIONS$
 @endsection
