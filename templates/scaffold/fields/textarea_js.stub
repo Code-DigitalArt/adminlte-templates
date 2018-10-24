@@ -1,5 +1,4 @@
 <!-- $FIELD_NAME_TITLE$ Field -->
-'<div class="form-group col-sm-12 col-lg-12">' +
-    '{{ Form::label('$FIELD_NAME$', '$FIELD_NAME_TITLE$:') }}' +
-    '<textarea class="form-control" name="$FIELD_ARRAY_NAME$[' + x + '][$FIELD_NAME$]" cols="50" rows="10" id="$FIELD_NAME$"$REQUIRED$></textarea>' +
+'<div class="form-group col-sm-6">' +
+    '<div class="form-group">$FIELD_NAME_TITLE$:<input type="textarea" rows="4" class="form-control" name="$FIELD_ARRAY_NAME$[' + x + '][$FIELD_NAME$]" title="" $REQUIRED$></div>' +
 '</div>' +
