@@ -3,8 +3,8 @@
     '<label for="$FIELD_NAME$">$FIELD_NAME_TITLE$:</label>' +
     '<label class="checkbox-inline">' +
 
-        '<input name="$FIELD_ARRAY_NAME$[' + x + '][$FIELD_NAME$]" type="hidden" value="" id="$FIELD_NAME$">' +
-        '<input type="checkbox" name="$FIELD_ARRAY_NAME$[' + x + '][$FIELD_NAME$]" value="$CHECKBOX_VALUE$" id="$FIELD_NAME$"$REQUIRED$>' +
+        '<input name="$RELATION_NAME$[' + x + '][$FIELD_NAME$]" type="hidden" value="" id="$FIELD_NAME$">' +
+        '<input type="checkbox" name="$RELATION_NAME$[' + x + '][$FIELD_NAME$]" value="$CHECKBOX_VALUE$" id="$FIELD_NAME$"$REQUIRED$>' +
 
     '</label>' +
 '</div>' +
