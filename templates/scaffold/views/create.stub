@@ -16,6 +16,8 @@
 
                         @include('$VIEW_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.fields')
 
+                        $MTM_RELATIONS$
+
                         $RELATIONS$
 
                     {{ Form::close() }}

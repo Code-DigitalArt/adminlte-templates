@@ -1,7 +1,7 @@
 <!-- $FIELD_NAME_TITLE$ Field -->
 '<div class="form-group col-sm-6">' +
     '$FIELD_NAME_TITLE$ Name:<select class="form-control" name="$RELATION_NAME$[' + x + '][$FIELD_NAME$]$REQUIRED$">'+
-        @foreach($$FOREIGN$s as $$FOREIGN$)
+        @foreach($$P_FOREIGN$ as $$FOREIGN$)
             '<option value="{{ $$FOREIGN$->id }}">{{ $$FOREIGN$->name }}' +
         @endforeach
     '</select>' +
