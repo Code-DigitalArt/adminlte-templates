@@ -2,7 +2,7 @@
 <div class="form-group col-sm-6">
     $FIELD_NAME_TITLE$ Name:<select class="form-control" name="$FIELD_NAME$"$REQUIRED$>
     @foreach($$P_FOREIGN$ as $$FOREIGN$)
-        <option value="{{ $$P_FOREIGN$->id }}">{{ $$FOREIGN$->name }}
+        <option value="{{ $$FOREIGN$->id }}">{{ $$FOREIGN$->name }}
     @endforeach
     </select>
 </div>
